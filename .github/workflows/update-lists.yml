@@ -1,0 +1,37 @@
+name: update-whitelist-and-psl
+
+on:
+  schedule:
+    - cron: "0 3 * * *"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Prepare directories
+        run: mkdir -p dist
+
+      - name: Fetch top-1m
+        run: curl -Ls -o dist/top-1m.csv.zip https://tranco-list.eu/top-1m.csv.zip
+
+      - name: Unzip CSV
+        run: unzip -o dist/top-1m.csv.zip -d dist
+
+      - name: Build Bloom whitelist
+        run: node scripts/build-whitelist.js
+
+      - name: Commit artifacts
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add dist
+          git commit -m "daily update: whitelist" || true
+          git push
