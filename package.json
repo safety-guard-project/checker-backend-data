@@ -1,0 +1,13 @@
+{
+  "name": "checker-backend-data",
+  "version": "1.0.0",
+  "description": "This repository automatically generates and distributes filtering data used by the Chrome extension \"IdentiSite.\"",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
