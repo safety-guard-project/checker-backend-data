@@ -3,7 +3,7 @@
 This repository automatically generates and distributes filtering data used by the Chrome extension "IdentiSite."
 
 ## Update Schedule
-Automatically updated at 03:00 (UTC) via GitHub Actions.
+Automatically updated every day at 01:00 (UTC) via GitHub Actions.
 
 ## What this repo does
 
