@@ -2,7 +2,7 @@ name: update-whitelist
 
 on:
   schedule:
-    - cron: "0 1 * * *"
+    - cron: "15 0 * * *"
   workflow_dispatch:
 
 permissions:
